@@ -1,20 +1,24 @@
 package models.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import models.services.TaxService;
 
 public class Contract {
 	
 	private Integer number;
 	private Date dateContract;
 	private Double totalValue;
+	private TaxService taxService;
 	
-	private Installment installment;
+	private ArrayList<Installment> installment;
 
-	public Contract(Integer number, Date dateContract, Double totalValue, Installment installment) {
+	public Contract(Integer number, Date dateContract, Double totalValue, TaxService taxService) {
 		this.number = number;
 		this.dateContract = dateContract;
 		this.totalValue = totalValue;
-		this.installment = installment;
+		this.taxService = taxService;
 	}
 
 	public Integer getNumber() {
@@ -41,12 +45,20 @@ public class Contract {
 		this.totalValue = totalValue;
 	}
 
-	public Installment getInstallment() {
+	public ArrayList<Installment> getInstallment() {
 		return installment;
 	}
 
-	public void setInstallment(Installment installment) {
+	public void setInstallment(ArrayList<Installment> installment) {
 		this.installment = installment;
+	}
+
+	public TaxService getTaxService() {
+		return taxService;
+	}
+
+	public void setTaxService(TaxService taxService) {
+		this.taxService = taxService;
 	}
 	
 	
